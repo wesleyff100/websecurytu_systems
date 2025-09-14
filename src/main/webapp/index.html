@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora SOAP Service Test</title>
+</head>
+<body>
+    <h1>Calculadora SOAP Service Test</h1>
+    <p>Access the WSDL at: <a href="/projetosoa/ws/calculadora?wsdl">/projetosoa/ws/calculadora?wsdl</a></p>
+    
+    <h2>SOAP Request Example:</h2>
+    <pre>
+POST /projetosoa/ws/calculadora HTTP/1.1
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "somar"
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:tns="http://soap/"&gt;
+  &lt;soap:Header/&gt;
+  &lt;soap:Body&gt;
+    &lt;tns:somar&gt;
+      &lt;numero1&gt;5&lt;/numero1&gt;
+      &lt;numero2&gt;3&lt;/numero2&gt;
+    &lt;/tns:somar&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+    </pre>
+    
+    <h2>Expected Response:</h2>
+    <pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+  &lt;soap:Body&gt;
+    &lt;ns2:somarResponse xmlns:ns2="http://soap/"&gt;
+      &lt;return&gt;8&lt;/return&gt;
+    &lt;/ns2:somarResponse&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+    </pre>
+</body>
+</html>
